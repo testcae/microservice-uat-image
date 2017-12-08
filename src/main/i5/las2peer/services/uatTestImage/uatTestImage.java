@@ -149,9 +149,11 @@ public class uatTestImage extends RESTService {
           imageResult.setimageUrl(result.getString("imageUrl"));
           imageResult.setimageId(result.getInt("imageId"));
           jsonResult.add(imageResult.toJSON());
-        }
+        } 
+
         // responseGetImage
-        return Response.status(HttpURLConnection.HTTP_OK).entity(jsonResult.toJSONString()).build();
+        return Response.status(HttpURLConnection.HTTP_OK).entity(jsonResult.toJSONString()).build(); 
+
     } catch(Exception e) {
       e.printStackTrace();
       JSONObject result = new JSONObject(); 
