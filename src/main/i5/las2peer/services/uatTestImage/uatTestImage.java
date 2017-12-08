@@ -93,7 +93,7 @@ public class uatTestImage extends RESTService {
    * postImage
    *
    * 
-   * @param payloadPost  a JSONObject
+   * @param payloadPost Payload post node a JSONObject
    * 
    * @return Response 
    * 
@@ -125,7 +125,7 @@ public class uatTestImage extends RESTService {
    * 
    *
    * 
-   * @return Response 
+   * @return Response Response node get
    * 
    */
   @GET
@@ -133,7 +133,7 @@ public class uatTestImage extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseGet")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Response node get")
   })
   @ApiOperation(value = "getImage", notes = " ")
   public Response getImage() {
@@ -141,7 +141,7 @@ public class uatTestImage extends RESTService {
     // responseGet
     boolean responseGet_condition = true;
     if(responseGet_condition) {
-      JSONObject resultGet = new JSONObject();
+      JSONObject resultGet = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(resultGet.toJSONString()).build();
     }
     return null;
