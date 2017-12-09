@@ -93,7 +93,7 @@ public class uatTestImage extends RESTService {
    * postImage
    *
    * 
-   * @param payloadPost Payload post node a JSONObject
+   * @param payloadPost  a JSONObject
    * 
    * @return Response 
    * 
@@ -145,7 +145,7 @@ public class uatTestImage extends RESTService {
    * 
    *
    * 
-   * @return Response Response node get
+   * @return Response 
    * 
    */
   @GET
@@ -153,7 +153,7 @@ public class uatTestImage extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Response node get")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseGet")
   })
   @ApiOperation(value = "getImage", notes = " ")
   public Response getImage() {
