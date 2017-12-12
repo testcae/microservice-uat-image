@@ -88,72 +88,7 @@ public class uatTestImage extends RESTService {
 
     private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
 
-      /**
-   * 
-   * getImage
-   *
-   * 
-   *
-   * 
-   * @return Response Response get image node
-   * 
-   */
-  @GET
-  @Path("/get")
-  @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.TEXT_PLAIN)
-  @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "Response get image node")
-  })
-  @ApiOperation(value = "getImage", notes = " ")
-  public Response getImage() {
-
-    // responseGetImage
-    boolean responseGetImage_condition = true;
-    if(responseGetImage_condition) {
-      JSONObject resultGetImage = new classes().new image().toJSON();
-      return Response.status(HttpURLConnection.HTTP_OK).entity(resultGetImage.toJSONString()).build();
-    }
-    return null;
-  }
-
-  /**
-   * 
-   * postImage
-   *
-   * 
-   * @param postImagePayload Post image node payload a JSONObject
-   * 
-   * @return Response 
-   * 
-   */
-  @POST
-  @Path("/post")
-  @Produces(MediaType.TEXT_PLAIN)
-  @Consumes(MediaType.TEXT_PLAIN)
-  @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responsePostImage")
-  })
-  @ApiOperation(value = "postImage", notes = " ")
-  public Response postImage(String postImagePayload) {
-   classes.image payloadpostImagePayloadObject = new classes().new image();
-   try { 
-       payloadpostImagePayloadObject.fromJSON(postImagePayload);
-   } catch (Exception e) { 
-       e.printStackTrace();
-       JSONObject result = new JSONObject();
-       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
-   }
-    // responsePostImage
-    boolean responsePostImage_condition = true;
-    if(responsePostImage_condition) {
-      String resultPostImage = "Some String";
-      return Response.status(HttpURLConnection.HTTP_OK).entity(resultPostImage).build();
-    }
-    return null;
-  }
-
-
+    
 
   }
 
