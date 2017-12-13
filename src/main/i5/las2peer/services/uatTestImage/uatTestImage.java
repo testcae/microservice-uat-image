@@ -149,7 +149,7 @@ public class uatTestImage extends RESTService {
    */
   @GET
   @Path("/pathToExisting")
-  @Produces(MediaType.APPLICATION_JSON)
+  @Produces(MediaType.TEXT_PLAIN)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
        @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "fetch the cover of the song")
