@@ -107,7 +107,7 @@ public class uatTestImage extends RESTService {
   })
   @ApiOperation(value = "POST", notes = " ")
   public Response POST(String img) {
-   classes.Image payloadimgObject = new classes().new Image();
+   classes.image payloadimgObject = new classes().new image();
    try { 
        payloadimgObject.fromJSON(img);
    } catch (Exception e) { 
