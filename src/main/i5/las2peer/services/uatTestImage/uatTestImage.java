@@ -124,7 +124,7 @@ public class uatTestImage extends RESTService {
    * 
    * @param payloadPost  a JSONObject
    * 
-   * @return Response 
+   * @return Response ImageResponse
    * 
    */
   @POST
@@ -132,7 +132,7 @@ public class uatTestImage extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "ImageResponse")
   })
   @ApiOperation(value = "postImage", notes = " ")
   public Response postImage(String payloadPost) {
