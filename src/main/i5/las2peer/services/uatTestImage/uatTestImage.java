@@ -166,7 +166,7 @@ public class uatTestImage extends RESTService {
        JSONObject result = new JSONObject();
        return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
    }
-        try { 
+    try { 
         Connection conn = service.dbm.getConnection();
         PreparedStatement query = conn.prepareStatement(
           "INSERT INTO uatTest.tblImage(imageName, imageUrl) VALUES(?,?) ");
