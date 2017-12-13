@@ -160,7 +160,7 @@ public class uatTestImage extends RESTService {
     // responseToExisting
     boolean responseToExisting_condition = true;
     if(responseToExisting_condition) {
-      JSONObject resultToExisting = new classes().new Image().toJSON();
+      JSONObject resultToExisting = new classes().new Image().toJON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(resultToExisting.toJSONString()).build();
     }
     return null;
