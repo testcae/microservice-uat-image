@@ -108,7 +108,7 @@ public class uatTestImage extends RESTService {
   @ApiOperation(value = "getImage", notes = " ")
   public Response getImage() {
 
-try { 
+    try { 
         Connection conn = service.dbm.getConnection();
         PreparedStatement query = conn.prepareStatement("SELECT * FROM uatTest.tblImage");
         ResultSet result = query.executeQuery();
