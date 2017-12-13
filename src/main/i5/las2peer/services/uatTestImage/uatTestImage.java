@@ -77,9 +77,9 @@ public class uatTestImage extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "uat-image", version = "",
-          description = "",
-          termsOfService = "",
+      info = @Info(title = "uat-image", version = "1.1.1",
+          description = "testing widget",
+          termsOfService = "test service",
           contact = @Contact(name = "Melisa Cecilia", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
               url = "https://github.com/testcae/microservice-uat-image/blob/master/LICENSE.txt") ) )
@@ -95,7 +95,7 @@ public class uatTestImage extends RESTService {
    * 
    *
    * 
-   * @return Response 
+   * @return Response response node
    * 
    */
   @GET
@@ -103,7 +103,7 @@ public class uatTestImage extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseGet")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "response node")
   })
   @ApiOperation(value = "getImage", notes = " ")
   public Response getImage() {
@@ -111,7 +111,7 @@ public class uatTestImage extends RESTService {
     // responseGet
     boolean responseGet_condition = true;
     if(responseGet_condition) {
-      JSONObject resultGet = new JSONObject();
+      JSONObject resultGet = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(resultGet.toJSONString()).build();
     }
     return null;
@@ -141,7 +141,7 @@ public class uatTestImage extends RESTService {
     // 
     boolean _condition = true;
     if(_condition) {
-      JSONObject  = new JSONObject();
+      JSONObject  = new classes().new image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(.toJSONString()).build();
     }
     return null;
