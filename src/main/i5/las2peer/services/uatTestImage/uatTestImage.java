@@ -154,7 +154,7 @@ public class uatTestImage extends RESTService {
 
     classes.image payloadpayloadPostImageObject = new classes().new image();
    try { 
-       payloadpayloadPostImageObject.fromJSON(payloadPostImage);
+       payloadpayloadPostImageObject.fromJSON(payloadPost);
    } catch (Exception e) { 
        e.printStackTrace();
        JSONObject result = new JSONObject();
