@@ -88,43 +88,7 @@ public class uatTestImage extends RESTService {
 
     private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
 
-      /**
-   * 
-   * test
-   *
-   * 
-   * @param test  a JSONObject
-   * 
-   * @return Response 
-   * 
-   */
-  @POST
-  @Path("/test")
-  @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.TEXT_PLAIN)
-  @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "test")
-  })
-  @ApiOperation(value = "test", notes = " ")
-  public Response test(String test) {
-   classes.image payloadtestObject = new classes().new image();
-   try { 
-       payloadtestObject.fromJSON(test);
-   } catch (Exception e) { 
-       e.printStackTrace();
-       JSONObject result = new JSONObject();
-       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
-   }
-    // test
-    boolean test_condition = true;
-    if(test_condition) {
-      JSONObject test = new JSONObject();
-      return Response.status(HttpURLConnection.HTTP_OK).entity(test.toJSONString()).build();
-    }
-    return null;
-  }
-
-
+    
 
   }
 

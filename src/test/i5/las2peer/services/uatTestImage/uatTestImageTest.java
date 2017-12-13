@@ -90,28 +90,6 @@ public class uatTestImageTest {
   }
 
 
-  /**
-   * 
-   * Test for the test method.
-   * 
-   */
-  @Test
-  public void testtest() {
-    MiniClient c = new MiniClient();
-    c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
-    try {
-      JSONObject test = new JSONObject();
-      c.setLogin(testAgent.getIdentifier(), testPass);
-      ClientResponse result = c.sendRequest("POST", mainPath + "/test", test.toJSONString(),
-        MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
-      assertTrue(true); // change here
-      System.out.println("Result of 'testtest': " + result.getResponse().trim());
-    } catch (Exception e) {
-      e.printStackTrace();
-      fail("Exception: " + e);
-    }
-  }
-
 
 
 
