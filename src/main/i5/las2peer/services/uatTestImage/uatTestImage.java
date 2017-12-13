@@ -150,8 +150,14 @@ public class uatTestImage extends RESTService {
   })
   @ApiOperation(value = "postImage", notes = " ")
   public Response postImage(String payloadPost) {
-    JSONObject payloadPost_JSON = (JSONObject) JSONValue.parse(payloadPost);
-
+   classes.image payloadpayloadPostObject = new classes().new image();
+   try { 
+       payloadpayloadPostObject.fromJSON(payloadPost);
+   } catch (Exception e) { 
+       e.printStackTrace();
+       JSONObject result = new JSONObject();
+       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
+   }
     classes.image payloadpayloadPostImageObject = new classes().new image();
    try { 
        payloadpayloadPostImageObject.fromJSON(payloadPost);
