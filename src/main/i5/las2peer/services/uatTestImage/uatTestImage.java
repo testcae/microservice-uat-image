@@ -108,11 +108,7 @@ public class uatTestImage extends RESTService {
   @ApiOperation(value = "getImage", notes = " ")
   public Response getImage() {
 
-    // responseGet
-    boolean responseGet_condition = true;
-    if(responseGet_condition) {
-      JSONObject resultGet = new classes().new image().toJSON();
-      return Response.status(HttpURLConnection.HTTP_OK).entity(resultGet.toJSONString()).build();
+    esponse.status(HttpURLConnection.HTTP_OK).entity(resultGet.toJSONString()).build();
     }
     return null;
   }
