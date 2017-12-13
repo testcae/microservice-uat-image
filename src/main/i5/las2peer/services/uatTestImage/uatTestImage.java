@@ -115,14 +115,6 @@ public class uatTestImage extends RESTService {
        JSONObject result = new JSONObject();
        return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
    }
-    classes.image payloadpayloadPostImageObject = new classes().new image();
-   try { 
-       payloadpayloadPostImageObject.fromJSON(payloadPostImage);
-   } catch (Exception e) { 
-       e.printStackTrace();
-       JSONObject result = new JSONObject();
-       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
-   }
         try { 
         Connection conn = service.dbm.getConnection();
         PreparedStatement query = conn.prepareStatement(
