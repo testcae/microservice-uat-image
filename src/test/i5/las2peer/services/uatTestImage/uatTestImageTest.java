@@ -90,6 +90,50 @@ public class uatTestImageTest {
   }
 
 
+  /**
+   * 
+   * Test for the POST method.
+   * 
+   */
+  @Test
+  public void testPOST() {
+    MiniClient c = new MiniClient();
+    c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
+    try {
+      JSONObject img = new JSONObject();
+      c.setLogin(testAgent.getIdentifier(), testPass);
+      ClientResponse result = c.sendRequest("POST", mainPath + "/postImg", img.toJSONString(),
+        MediaType.APPLICATION_JSON, MediaType.APPLICATION_JSON, new HashMap<String,String>());
+      assertTrue(true); // change here
+      System.out.println("Result of 'testPOST': " + result.getResponse().trim());
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("Exception: " + e);
+    }
+  }
+
+  /**
+   * 
+   * Test for the existing method.
+   * 
+   */
+  @Test
+  public void testexisting() {
+    MiniClient c = new MiniClient();
+    c.setAddressPort(HTTP_ADDRESS, HTTP_PORT);
+    try {
+
+      c.setLogin(testAgent.getIdentifier(), testPass);
+      ClientResponse result = c.sendRequest("GET", mainPath + "/pathToExisting", "",
+        MediaType.TEXT_PLAIN, MediaType.APPLICATION_JSON, new HashMap<String,String>());
+      assertTrue(true); // change here
+      System.out.println("Result of 'testexisting': " + result.getResponse().trim());
+    } catch (Exception e) {
+      e.printStackTrace();
+      fail("Exception: " + e);
+    }
+  }
+
 
 
 

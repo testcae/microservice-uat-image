@@ -88,7 +88,66 @@ public class uatTestImage extends RESTService {
 
     private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
 
-    
+      /**
+   * 
+   * POST
+   *
+   * 
+   * @param img  a JSONObject
+   * 
+   * @return Response 
+   * 
+   */
+  @POST
+  @Path("/postImg")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "img")
+  })
+  @ApiOperation(value = "POST", notes = " ")
+  public Response POST(String img) {
+    JSONObject img_JSON = (JSONObject) JSONValue.parse(img);
+
+    // img
+    boolean img_condition = true;
+    if(img_condition) {
+      JSONObject img = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(img.toJSONString()).build();
+    }
+    return null;
+  }
+
+  /**
+   * 
+   * existing
+   *
+   * 
+   *
+   * 
+   * @return Response 
+   * 
+   */
+  @GET
+  @Path("/pathToExisting")
+  @Produces(MediaType.APPLICATION_JSON)
+  @Consumes(MediaType.TEXT_PLAIN)
+  @ApiResponses(value = {
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseToExisting")
+  })
+  @ApiOperation(value = "existing", notes = " ")
+  public Response existing() {
+
+    // responseToExisting
+    boolean responseToExisting_condition = true;
+    if(responseToExisting_condition) {
+      JSONObject resultToExisting = new JSONObject();
+      return Response.status(HttpURLConnection.HTTP_OK).entity(resultToExisting.toJSONString()).build();
+    }
+    return null;
+  }
+
+
 
   }
 
