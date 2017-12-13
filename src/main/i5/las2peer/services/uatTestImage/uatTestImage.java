@@ -156,12 +156,26 @@ public class uatTestImage extends RESTService {
   })
   @ApiOperation(value = "existing", notes = " ")
   public Response existing() {
+try { 
+        Connection conn = service.dbm.getConnection();
+        PreparedStatement query = conn.prepareStatement("SELECT * FROM uatTest.tblImage");
+        ResultSet result = query.executeQuery();
+        JSONArray jsonResult = new JSONArray();
+        while(result.next()) {
+          classes.image imageResult = new classes().new image();
+          imageResult.setimageName(result.getString("imageName"));
+          imageResult.setimageUrl(result.getString("imageUrl"));
+          imageResult.setimageId(result.getInt("imageId"));
+          jsonResult.add(imageResult.toJSON());
+        }
+        // responseGetImage
+        return Response.status(HttpURLConnection.HTTP_OK).entity(jsonResult.toJSONString()).build();
+    } catch(Exception e) {
+      e.printStackTrace();
+      JSONObject result = new JSONObject(); 
+      return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity(result.toJSONString()).build();
+    }
 
-    // responseToExisting
-    boolean responseToExisting_condition = true;
-    if(responseToExisting_condition) {
-      JSONObject resultToExisting = new classes().new Image().toJON();
-      return Response.status(HttpURLConnection.HTTP_OK).entity(resultToExisting.toJSONString()
   }
 
 
