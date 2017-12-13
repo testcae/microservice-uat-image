@@ -88,43 +88,7 @@ public class uatTestImage extends RESTService {
 
     private final uatTestImage service = (uatTestImage) Context.getCurrent().getService();
 
-      /**
-   * 
-   * postImage
-   *
-   * 
-   * @param payloadPost payload post node a JSONObject
-   * 
-   * @return Response 
-   * 
-   */
-  @POST
-  @Path("/post")
-  @Produces(MediaType.APPLICATION_JSON)
-  @Consumes(MediaType.TEXT_PLAIN)
-  @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responsePost")
-  })
-  @ApiOperation(value = "postImage", notes = " ")
-  public Response postImage(String payloadPost) {
-   classes.image payloadpayloadPostObject = new classes().new image();
-   try { 
-       payloadpayloadPostObject.fromJSON(payloadPost);
-   } catch (Exception e) { 
-       e.printStackTrace();
-       JSONObject result = new JSONObject();
-       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
-   }
-    // responsePost
-    boolean responsePost_condition = true;
-    if(responsePost_condition) {
-      JSONObject resultPost = new JSONObject();
-      return Response.status(HttpURLConnection.HTTP_OK).entity(resultPost.toJSONString()).build();
-    }
-    return null;
-  }
-
-
+    
 
   }
 
