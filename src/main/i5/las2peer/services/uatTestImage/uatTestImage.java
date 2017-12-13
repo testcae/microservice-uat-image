@@ -77,9 +77,9 @@ public class uatTestImage extends RESTService {
 
   @Api
   @SwaggerDefinition(
-      info = @Info(title = "uat-image", version = "",
-          description = "",
-          termsOfService = "",
+      info = @Info(title = "uat-image", version = "1.0",
+          description = "This service get the covers of the songs ",
+          termsOfService = "blablablablablabla",
           contact = @Contact(name = "Melisa Cecilia", email = "CAEAddress@gmail.com") ,
           license = @License(name = "BSD",
               url = "https://github.com/testcae/microservice-uat-image/blob/master/LICENSE.txt") ) )
@@ -93,7 +93,7 @@ public class uatTestImage extends RESTService {
    * POST
    *
    * 
-   * @param img  a JSONObject
+   * @param img Image of the song a JSONObject
    * 
    * @return Response 
    * 
@@ -107,8 +107,14 @@ public class uatTestImage extends RESTService {
   })
   @ApiOperation(value = "POST", notes = " ")
   public Response POST(String img) {
-    JSONObject img_JSON = (JSONObject) JSONValue.parse(img);
-
+   classes.Image payloadimgObject = new classes().new Image();
+   try { 
+       payloadimgObject.fromJSON(img);
+   } catch (Exception e) { 
+       e.printStackTrace();
+       JSONObject result = new JSONObject();
+       return Response.status(HttpURLConnection.HTTP_INTERNAL_ERROR).entity("Cannot convert json to object").build();
+   }
     // img
     boolean img_condition = true;
     if(img_condition) {
@@ -125,7 +131,7 @@ public class uatTestImage extends RESTService {
    * 
    *
    * 
-   * @return Response 
+   * @return Response fetch the cover of the song
    * 
    */
   @GET
@@ -133,7 +139,7 @@ public class uatTestImage extends RESTService {
   @Produces(MediaType.APPLICATION_JSON)
   @Consumes(MediaType.TEXT_PLAIN)
   @ApiResponses(value = {
-       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "responseToExisting")
+       @ApiResponse(code = HttpURLConnection.HTTP_OK, message = "fetch the cover of the song")
   })
   @ApiOperation(value = "existing", notes = " ")
   public Response existing() {
@@ -141,7 +147,7 @@ public class uatTestImage extends RESTService {
     // responseToExisting
     boolean responseToExisting_condition = true;
     if(responseToExisting_condition) {
-      JSONObject resultToExisting = new JSONObject();
+      JSONObject resultToExisting = new classes().new Image().toJSON();
       return Response.status(HttpURLConnection.HTTP_OK).entity(resultToExisting.toJSONString()).build();
     }
     return null;
